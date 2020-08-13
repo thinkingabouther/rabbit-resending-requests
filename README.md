@@ -31,7 +31,7 @@ dotnet run --project Consumer
   ```
   - You can also send custom message by passing it as an argument:
   ```
-  dotnet run --project Consumer "https://yandex.com"
+  dotnet run --project Producer "https://yandex.com"
   ```
 ### Adding Requesters
 Requester used to process the message is implemented using strategy pattern, so it will be easy for you add your own. 
