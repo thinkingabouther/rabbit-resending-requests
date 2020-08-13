@@ -24,7 +24,7 @@ Consumer recevies the URI and procceses it according to the logic inside Request
 ```
 dotnet run --project Consumer
 ```
-3. Run Producer
+3. Open another terminal instance and run Producer
   - the default message will be sent:
   ```
   dotnet run --project Producer
