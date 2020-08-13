@@ -3,7 +3,7 @@
 ## Overview
 
 Producer and Consumer that work with RabbitMQ. Producer send a message with URI of a resource. 
-Consumer recevies the URI and procceses it according to the logic inside Requester. The default one makes GET request. If request fails (status-code is not 20*), the message resends after a given delay. 
+Consumer recevies the URI and procceses it according to the logic inside Requester. The default one makes GET request. If request fails (status-code is not 20*), the message resends after a given delay using dead-letter exchange (DLX). 
 
 
 ## What is done
