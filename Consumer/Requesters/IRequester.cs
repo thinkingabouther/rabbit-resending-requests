@@ -1,9 +1,10 @@
+using Common;
 using RabbitMQ.Client.Events;
 
-namespace Consumer
+namespace Consumer.Requesters
 {
     public interface IRequester
     {
-        bool TryRequest(BasicDeliverEventArgs eventArgs);
+        bool TryRequest(Message message);
     }
 }

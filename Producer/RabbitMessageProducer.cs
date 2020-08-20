@@ -17,6 +17,7 @@ namespace Producer
         {
             RoutingKey = routingKey;
             ExchangeName = exchangeName;
+            InitializeExchange();
         }
 
         private void InitializeExchange()
@@ -26,7 +27,6 @@ namespace Producer
 
         public void Publish(string message)
         {
-            InitializeExchange();
             var messageModel = GetMessage(message);
             var body = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(messageModel));
             _channel.BasicPublish(exchange: ExchangeName, routingKey: RoutingKey, basicProperties: null, body: body);

@@ -4,6 +4,8 @@ using System.Net.Http;
 using System.Text;
 using System.Text.RegularExpressions;
 using Common;
+using Consumer.FailurePostProcessors;
+using Consumer.Requesters;
 using Newtonsoft.Json;
 using RabbitMQ.Client.Events;
 
@@ -11,11 +13,15 @@ namespace Consumer
 {
     public class GetRequester : IRequester
     {
-        public bool TryRequest(BasicDeliverEventArgs eventArgs)
+        public GetRequester(){}
+        public GetRequester(IFailurePostProcessor postProcessor)
         {
-            byte[] body = eventArgs.Body.ToArray();
-            var messageString = Encoding.UTF8.GetString(body);
-            var message = JsonConvert.DeserializeObject<Message>(messageString);
+            PostProcessor = postProcessor;
+        }
+
+        private IFailurePostProcessor PostProcessor { get;  }
+        public bool TryRequest(Message message)
+        {
             HttpClient client = new HttpClient();
             var responseMessage = client.GetAsync(message.Url).GetAwaiter().GetResult();
             //responseMessage.StatusCode = HttpStatusCode.NotFound; // uncomment the line to make the consumer deny the message 
@@ -26,6 +32,7 @@ namespace Consumer
                 return true;
             }
             Console.WriteLine(" Message was acknowledged negatively");
+            PostProcessor?.Process(message);
             return false;
         }
         
