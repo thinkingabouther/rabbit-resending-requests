@@ -6,6 +6,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using Common;
 using Consumer.FailurePostProcessors;
+using Consumer.Requesters;
 using Newtonsoft.Json;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;

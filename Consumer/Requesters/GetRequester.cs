@@ -1,15 +1,10 @@
 using System;
-using System.Net;
 using System.Net.Http;
-using System.Text;
 using System.Text.RegularExpressions;
 using Common;
 using Consumer.FailurePostProcessors;
-using Consumer.Requesters;
-using Newtonsoft.Json;
-using RabbitMQ.Client.Events;
 
-namespace Consumer
+namespace Consumer.Requesters
 {
     public class GetRequester : IRequester
     {

@@ -58,7 +58,7 @@ namespace Consumer
             var messageString = Encoding.UTF8.GetString(body);
             return JsonConvert.DeserializeObject<Message>(messageString);
         }
-        
+
         public void Dispose()
         {
             _channel?.Dispose();

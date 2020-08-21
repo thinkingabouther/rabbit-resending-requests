@@ -7,5 +7,8 @@ namespace Common
     {
         [JsonPropertyName("url")]
         public string Url { get; set; }
+
+        [JsonPropertyName("republish-count")]
+        public int RepublishCount { get; set; } = 0;
     }
 }
