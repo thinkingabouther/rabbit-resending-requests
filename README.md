@@ -10,8 +10,6 @@ Consumer receives the URI and processes it according to the logic inside Request
 - [Producer](https://github.com/thinkingabouther/rabbit-resending-requests/blob/master/Producer/RabbitMessageProducer.cs) that sends a message given as an argument
 - [Consumer](https://github.com/thinkingabouther/rabbit-resending-requests/blob/master/Consumer/RabbitMessageConsumer.cs) that processes the message using [Requester](https://github.com/thinkingabouther/rabbit-resending-requests/blob/master/Consumer/Requesters/GetRequester.cs)
 - [Rebulisher](https://github.com/thinkingabouther/rabbit-resending-requests/blob/master/Consumer/FailurePostProcessors/RabbitMessageRePublisher.cs) that resends the message back to a consumer after a given delay
-
-## What might be done in the future
 - Custom growing TTL for message that was rejected
 
 ## Requirements
